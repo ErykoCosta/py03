@@ -168,3 +168,5 @@ for venda in vendas:
         total_por_categoria[categoria] = valor
 
 print(total_por_categoria)
+
+
