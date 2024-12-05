@@ -65,3 +65,55 @@ while i < len(itens):
     i += 1
 
 #######################################################
+
+#Ajuste de validação de salário
+
+#Solicitando nome
+nome_valido = False
+salario_valido = False
+bonus_valido = False
+
+while nome_valido is not True:
+    try:
+        nome = input("Digite seu nome: ")
+        #verificar se o nome está válido
+        if len(nome) == 0:
+            raise ValueError("O nome não pode estar vazio.")
+          
+        #verificar se há números
+        elif nome.isdigit():
+            raise ValueError("O nome não deve ter números.")
+          
+        else:
+            nome_valido = True
+            print("Nome válido: ", nome)
+    except ValueError as e:
+        print(e)
+
+#solicitando salário
+
+while salario_valido is not True:
+    try:
+        salario = float(input("Digite o valor do seu salário: "))
+        if salario < 0:
+            print("Digite uma salário com valor positivo.")
+        else:
+            salario_valido = True
+    except ValueError:
+            print("Entrada inválida para salário, digite um valor válido.")
+
+#Solicitando bonus
+
+while bonus_valido is not True:
+    try:
+        bonus = float(input("Digite seu bônus: "))
+        if bonus < 0:
+            print("Digite um valor positivo.")
+        else:
+            bonus_valido = True
+    except ValueError:
+        print("Valor inválido para o bônus. Digite um valor válido.")
+
+bonus_recebido = 1000 + salario * bonus
+
+print(f"{nome}, seu salário é de R${salario:.2f} e seu bônus é de R${bonus_recebido:.2f}.")
